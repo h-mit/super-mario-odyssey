@@ -1,6 +1,6 @@
 <template lang="pug">
 #app
-  img(src="./assets/logo.png")
+  h1 Super Mario Odyssey History
   router-view
 </template>
 
@@ -15,8 +15,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: $text-color;
-  margin-top: 60px;
 }
+
 </style>
