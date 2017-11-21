@@ -9,7 +9,13 @@
 </template>
 
 <script>
+import moment from 'moment'
 import LineChart from '@/components/LineChart.js'
+
+function newDate(days) {
+  return moment().add(days, 'd').toDate()
+}
+
 export default {
   name: 'Layout',
   components: {
@@ -18,71 +24,53 @@ export default {
   data() {
     return {
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: [
+          newDate(0),
+          newDate(2),
+          newDate(4),
+          newDate(5),
+          newDate(10),
+          newDate(13),
+          newDate(14)
+        ],
         datasets: [
           {
             label: 'Cap',
-            backgroundColor: '#e77',
+            backgroundColor: 'rgba(244, 67, 36, 0.3)',
             data: [
-              { x: '2017-11-01', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-05', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-06', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-11', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-13', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-16', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-21', y: Math.round(Math.random() * 15 + 5) }
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5)
             ]
           },
           {
             label: 'Cascade',
-            backgroundColor: '#7e7',
+            backgroundColor: 'rgba(233, 30, 99, 0.3)',
             data: [
-              { x: '2017-11-01', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-05', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-06', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-11', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-13', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-16', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-21', y: Math.round(Math.random() * 15 + 5) }
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5)
             ]
           },
           {
             label: 'Sand',
-            backgroundColor: '#77e',
+            backgroundColor: 'rgba(156, 39, 176, 0.3)',
             data: [
-              { x: '2017-11-01', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-05', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-06', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-11', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-13', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-16', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-21', y: Math.round(Math.random() * 15 + 5) }
-            ]
-          },
-          {
-            label: 'Lake',
-            backgroundColor: '#ee7',
-            data: [
-              { x: '2017-11-01', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-05', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-06', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-11', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-13', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-16', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-21', y: Math.round(Math.random() * 15 + 5) }
-            ]
-          },
-          {
-            label: 'Wooded',
-            backgroundColor: '#7ee',
-            data: [
-              { x: '2017-11-01', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-05', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-06', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-11', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-13', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-16', y: Math.round(Math.random() * 15 + 5) },
-              { x: '2017-11-21', y: Math.round(Math.random() * 15 + 5) }
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5),
+              Math.round(Math.random() * 15 + 5)
             ]
           }
         ]
@@ -93,11 +81,26 @@ export default {
           text: 'Any%RTA'
         },
         tooltips: {
-          mode: 'index',
-          intersect: false
+          mode: 'index'
+        },
+        elements: {
+          line: {
+            tension: 0.1
+          }
         },
         scales: {
           xAxes: [{
+            type: 'time',
+            time: {
+              tooltipFormat: 'YYYY/MM/DD HH:mm'
+            },
+            scaleLabel: {
+              display: true,
+              labelString: 'Date'
+            },
+            gridLines: {
+              display: true
+            },
             stacked: true
           }],
           yAxes: [{
@@ -106,7 +109,10 @@ export default {
               labelString: 'Realtime [min]'
             },
             ticks: {
-              stepSize: 5
+              stepSize: 10
+            },
+            gridLines: {
+              display: true
             },
             stacked: true
           }]
