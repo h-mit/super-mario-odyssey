@@ -11,6 +11,8 @@
 <script>
 import moment from 'moment'
 import LineChart from '@/components/LineChart.js'
+import api from '@/api'
+import X2JS from 'x2js'
 
 function newDate(days) {
   return moment().add(days, 'd').toDate()
@@ -20,6 +22,13 @@ export default {
   name: 'Layout',
   components: {
     LineChart
+  },
+  created() {
+    let x2js = new X2JS()
+    api.fetchSplit()
+      .then(response => {
+        console.log(x2js.xml2js(response.data))
+      })
   },
   data() {
     return {
