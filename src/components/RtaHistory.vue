@@ -38,7 +38,7 @@ export default {
         },
         elements: {
           line: {
-            tension: 0.1
+            tension: 0
           }
         },
         scales: {
