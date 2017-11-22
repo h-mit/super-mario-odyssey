@@ -1,5 +1,6 @@
 <template lang="pug">
-.layout
+.rta-history
+  h1 My SMO RTA history
   LineChart(
     :chart-data="data"
     :options="options"

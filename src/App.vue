@@ -1,6 +1,5 @@
 <template lang="pug">
 #app
-  h1 My SMO RTA history
   router-view
 </template>
 
@@ -20,5 +19,10 @@ h1 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $text-color;
+  text-align: center;
+  .rta-history {
+    width: 900px;
+    margin: 0 auto;
+  }
 }
 </style>

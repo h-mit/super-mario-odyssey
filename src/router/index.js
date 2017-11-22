@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Lauout from '@/components/Lauout'
+import RtaHistory from '@/components/RtaHistory'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Lauout',
-      component: Lauout
+      path: '/*',
+      name: 'RtaHistory',
+      component: RtaHistory
     }
   ]
 })
