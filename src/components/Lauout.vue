@@ -32,10 +32,6 @@ export default {
     return {
       data: null,
       options: {
-        title: {
-          display: true,
-          text: 'Any%RTA'
-        },
         tooltips: {
           mode: 'index'
         },
@@ -65,7 +61,7 @@ export default {
               labelString: 'Realtime [min]'
             },
             ticks: {
-              stepSize: 10
+              min: 60
             },
             gridLines: {
               display: true
@@ -107,22 +103,17 @@ export default {
 
     // Splitデータからグラフ用のデータを作成
     generateData({ Run }) {
-      console.log(Run)
-
       // 返却用のオブジェクトを作成
       let data = {
         labels: [],
         datasets: []
       }
 
-      // 各セグメントの格納場所を作成
-      const segments = Run.Segments.Segment
-      segments.forEach((segment, index) => {
-        data.datasets.push({
-          label: segment.Name,
-          backgroundColor: this.getMaterialColor(index, 1.0),
-          data: []
-        })
+      // データの格納場所を作成
+      data.datasets.push({
+        label: Run.CategoryName,
+        backgroundColor: this.getMaterialColor(0, 0.5),
+        data: []
       })
 
       // グラフ用のデータを格納する
@@ -141,13 +132,9 @@ export default {
           let endedDate = moment(element._ended + 'Z', dateFormat).toDate()
           data.labels.push(endedDate)
 
-          // 対応するセグメントデータを探索
-          segments.forEach((segment, index) => {
-            let foundData = segment.SegmentHistory.Time.find(record => record._id === element._id)
-            // セグメントの時間を格納
-            let timeMin = (foundData != null) ? moment.duration(foundData.RealTime).asMinutes() : 0
-            data.datasets[index].data.push(timeMin)
-          })
+          // タイムのデータを追加
+          let time = moment.duration(element.RealTime).asMinutes()
+          data.datasets[0].data.push(time)
         }
       }
       this.data = data
